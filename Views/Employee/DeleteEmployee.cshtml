@@ -1,0 +1,54 @@
+﻿@model MVCWithRepository.Models.Employee
+@{
+    ViewBag.Title = "DeleteEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+ 
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    @using (Html.BeginForm("Delete", "Employee", FormMethod.Post))
+    {
+        @Html.HiddenFor(e => e.Id)
+        <h4>Delete Employee</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DeptId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DeptId)
+            </dd>
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Employee List", "Index")
+        </div>
+    }
+</div>
